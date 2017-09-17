@@ -1,6 +1,6 @@
 package com.innopolis.outside.common.network
 
-import com.innopolis.outside.model.entity.ForecastResponse
+import com.innopolis.outside.model.entity.Response
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -18,7 +18,7 @@ class Service(val networkService: NetworkService) {
             )
 
     interface GetForecastNowCallback {
-        fun onSuccess(forecast: ForecastResponse)
+        fun onSuccess(forecast: Response)
         fun onError(networkError: NetworkError)
     }
 }
