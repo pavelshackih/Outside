@@ -9,6 +9,4 @@ data class Forecast(val dt: Long,
                     val humidity: Int,
                     val weather: List<Weather>,
                     val speed: Float,
-                    val deg: Int,
-                    val clouds: Int,
-                    val rain: Float)
+                    val deg: Int)

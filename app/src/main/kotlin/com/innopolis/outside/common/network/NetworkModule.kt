@@ -12,7 +12,8 @@ import javax.inject.Singleton
  */
 @Module
 class NetworkModule {
-    val BASE_URL = "https://api.openweathermap.org/"
+    val BASE_URL = "http://api.openweathermap.org/"
+    val APP_ID = "60947ea90bd50c478628a9214507ef87"
 
     @Provides
     @Singleton

@@ -1,6 +1,8 @@
 package com.innopolis.outside.screens.main
 
+import com.innopolis.outside.common.network.NetworkError
 import com.innopolis.outside.common.network.Service
+import com.innopolis.outside.model.entity.Response
 import com.innopolis.outside.screens.core.BasePresenter
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
@@ -20,11 +22,27 @@ class MainPresenter : BasePresenter<MainView> {
         this.service = service
     }
 
+    fun getForecastList() {
+        val subscription = service?.getForecast(object : Service.GetForecastCallback {
+            override fun onSuccess(forecast: Response) {
+
+            }
+
+            override fun onError(networkError: NetworkError) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+        })
+
+        disposable?.add(subscription!!)
+    }
+
     override fun attachView(view: MainView) {
         this.view = view
+        disposable = CompositeDisposable()
     }
 
     override fun detachView() {
         view = null
+        disposable?.clear()
     }
 }

@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity(), MainView {
 
         BaseApp.Companion.component?.inject(this)
         presenter.attachView(this)
+        presenter.getForecastList()
     }
 
     override fun showMessage(message: String) {
