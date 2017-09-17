@@ -27,24 +27,26 @@
         android:src="@drawable/cloudy_weather"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/location_text"/>
+        app:layout_constraintTop_toBottomOf="@+id/location_text"/>
 
     <TextView
         android:id="@+id/current_temperature_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="20°"
+        android:text="20"
+        android:gravity="top"
         android:textColor="@color/white"
         android:textSize="@dimen/current_temperature_text"
-        app:layout_constraintTop_toBottomOf="@id/weather_icon"/>
+        app:layout_constraintTop_toBottomOf="@+id/weather_icon"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
     <ImageView
         android:id="@+id/humidity_icon"
-        android:layout_width="wrap_content"
+        android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/water"
-        app:layout_constraintTop_toBottomOf="@id/weather_icon"
-        app:layout_constraintLeft_toRightOf="@id/current_temperature_text"/>
+        app:layout_constraintTop_toTopOf="@+id/current_temperature_text"
+        app:layout_constraintLeft_toRightOf="@+id/current_temperature_text"/>
 
     <TextView
         android:id="@+id/humidity_text"
@@ -52,8 +54,35 @@
         android:layout_height="wrap_content"
         android:text="20%"
         android:textColor="@color/white"
-        app:layout_constraintRight_toRightOf="@id/humidity_icon"
-        app:layout_constraintTop_toTopOf="@id/humidity_icon"
-        app:layout_constraintBottom_toBottomOf="@id/humidity_icon"/>
+        app:layout_constraintLeft_toRightOf="@+id/humidity_icon"
+        app:layout_constraintTop_toTopOf="@+id/humidity_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/humidity_icon"/>
+
+    <ImageView
+        android:id="@+id/wind_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/wind"
+        app:layout_constraintBottom_toBottomOf="@+id/current_temperature_text"
+        app:layout_constraintLeft_toRightOf="@+id/current_temperature_text"/>
+
+    <TextView
+        android:id="@+id/wind_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20 м/с"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toRightOf="@+id/wind_icon"
+        app:layout_constraintTop_toTopOf="@+id/wind_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/wind_icon"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/future_forecasts_list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintTop_toBottomOf="@+id/current_temperature_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>
