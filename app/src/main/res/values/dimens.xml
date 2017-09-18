@@ -2,5 +2,8 @@
 <resources>
     <dimen name="location_text">20sp</dimen>
     <dimen name="current_temperature_text">80sp</dimen>
-    <dimen name="small_icon">30dp</dimen>
-</resources>
+    <dimen name="small_icon">25dp</dimen>
+    <dimen name="small_icon_right_margin">123dp</dimen>
+    <dimen name="small_icon_vertical_margin">15dp</dimen>
+    <dimen name="small_icon_text_margin">5dp</dimen>
+1</resources>
