@@ -10,8 +10,11 @@ import retrofit2.http.Query
  */
 interface NetworkService {
 
-    @GET("/data/2.5/forecast/")
-    fun getForecastList(@Query("q") city: String,
-                        @Query("APPID") key: String,
-                        @Query("units") units: String): Observable<ServerResponse>
+    /**
+     * Get current weather
+     */
+    @GET("/data/2.5/weather/")
+    fun getForecastNow(@Query("q") city: String,
+                       @Query("APPID") key: String,
+                       @Query("units") units: String): Observable<ServerResponse>
 }

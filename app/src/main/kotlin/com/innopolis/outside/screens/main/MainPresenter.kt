@@ -5,6 +5,7 @@ import com.innopolis.outside.common.network.Service
 import com.innopolis.outside.data.server.ServerResponse
 import com.innopolis.outside.domain.model.Forecast
 import com.innopolis.outside.domain.model.ForecastDataMapper
+import com.innopolis.outside.domain.model.ForecastList
 import com.innopolis.outside.screens.core.BasePresenter
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
@@ -28,7 +29,10 @@ class MainPresenter : BasePresenter<MainView> {
         val subscription = service?.getForecast(object : Service.GetForecastCallback {
             override fun onSuccess(forecast: ServerResponse) {
                 val mapper = ForecastDataMapper()
-                print(1)
+                val currentForecast = mapper.convertFromDataModel(forecast)
+                view?.showTemperature(currentForecast.currentTemperature)
+                view?.showHumidity(currentForecast.humidity)
+                view?.showWind(currentForecast.windSpeed)
             }
 
             override fun onError(networkError: NetworkError) {

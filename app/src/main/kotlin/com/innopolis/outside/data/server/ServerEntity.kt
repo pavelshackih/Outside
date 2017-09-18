@@ -1,5 +1,8 @@
 package com.innopolis.outside.data.server
 
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
+
 /**
  * @author Sergey Pinkevich
  */
@@ -12,22 +15,38 @@ data class City(val id: Long,
 data class Coordinates(val lat: Float,
                        val lon: Float)
 
-data class ForecastServerEntity(val dt: Long,
-                                val temp: Temperature,
-                                val pressure: Float,
-                                val humidity: Int,
-                                val weather: List<Weather>,
-                                val speed: Float,
-                                val deg: Int)
+data class Wind(val speed: Float,
+                val deg: Float)
 
-data class ServerResponse(val city: City, val list: List<ForecastServerEntity>)
+data class Clouds(val all: Int)
 
-data class Temperature(val day: Float,
-                       val min: Float,
-                       val max: Float,
-                       val night: Float,
-                       val eve: Float,
-                       val morn: Float)
+data class ServerResponse(val coord: Coordinates,
+                          val weather: List<Weather>,
+                          val main: ForecastInfo,
+                          val wind: Wind,
+                          val clouds: Clouds,
+                          val rain: Rain,
+                          val snow: Snow,
+                          val dt: Long,
+                          val name: String)
+
+class Rain {
+    @SerializedName("3h")
+    @Expose
+    var rainVolume: Float = 0.0F
+}
+
+class Snow {
+    @SerializedName("3h")
+    @Expose
+    var snowVolume: Float = 0.0F
+}
+
+data class ForecastInfo(val temp: Float,
+                        val temp_min: Float,
+                        val temp_max: Float,
+                        val humidity: Float,
+                        val pressure: Float)
 
 data class Weather(val id: Long,
                    val main: String,
