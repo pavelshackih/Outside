@@ -71,13 +71,4 @@
         app:layout_constraintBottom_toBottomOf="@+id/wind_icon"
         android:layout_marginLeft="@dimen/small_icon_text_margin"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/future_forecasts_list"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        app:layout_constraintTop_toBottomOf="@+id/current_temperature_text"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-
 </android.support.constraint.ConstraintLayout>
