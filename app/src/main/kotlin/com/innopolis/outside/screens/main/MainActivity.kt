@@ -25,6 +25,14 @@ class MainActivity : AppCompatActivity(), MainView {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
+    override fun showProgress() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun hideProgress() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun showLocation(city: String, country: String) {
 
     }

@@ -11,4 +11,13 @@ data class Forecast(val date: String,
                     val description: String,
                     val currentTemperature: Int,
                     val humidity: Int,
-                    val windSpeed: Int)
+                    val windSpeed: Int,
+                    val weatherIcon: Int)
+
+enum class TimeOfDay {
+    DAY, NIGHT
+}
+
+enum class Weather {
+    SUN, SNOW, RAIN, WIND, SNOW_RAIN, STORM, THUNDER
+}
