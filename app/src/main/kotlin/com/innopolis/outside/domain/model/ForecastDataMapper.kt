@@ -10,8 +10,14 @@ import com.innopolis.outside.domain.model.Forecast as ModelForecast
  */
 class ForecastDataMapper {
 
-    fun convertFromDataModel(forecast: ServerResponse) = ModelForecast(forecast.dt.toDateString(),
-            forecast.weather[0].main, forecast.name, forecast.sys.country, forecast.main.temp.toInt(),
-            forecast.main.humidity.toInt(), forecast.wind.deg.toInt(), forecast.wind.speed.toInt(),
+    fun convertFromDataModel(forecast: ServerResponse) = ModelForecast(
+            forecast.dt.toDateString(),
+            forecast.name,
+            forecast.sys.country,
+            forecast.weather[0].main,
+            forecast.main.temp.toInt(),
+            forecast.main.humidity.toInt(),
+            forecast.wind.deg.toInt(),
+            forecast.wind.speed.toInt(),
             WeatherIconConverter(forecast).weatherIconDrawable())
 }

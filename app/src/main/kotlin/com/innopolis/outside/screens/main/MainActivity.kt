@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     override fun showLocation(location: String) {
-        supportActionBar?.title = ""
+        supportActionBar?.title = location
     }
 
     override fun showTemperature(temp: Int) {
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     override fun showWind(windSpeed: Int, windDegree: Int) {
-        convertFromWindDegree(windDegree)
+        wind_text.text = "${convertFromWindDegree(windDegree)} $windSpeed ${getString(R.string.wind_speed)}"
     }
 
     /**
@@ -61,8 +61,8 @@ class MainActivity : AppCompatActivity(), MainView {
      * @return id of the string resource
      */
     private fun convertFromWindDegree(degree: Int): String {
-        val sideWorldsList = listOf(resources.getStringArray(R.array.worldsides))
+        val sideWorldsList = resources.getStringArray(R.array.worldsides)
         val changedDegree = degree + 22.5
-        return "2"
+        return sideWorldsList[(changedDegree % 8).toInt()]
     }
 }
