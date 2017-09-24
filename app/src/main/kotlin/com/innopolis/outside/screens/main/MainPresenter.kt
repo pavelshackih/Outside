@@ -26,13 +26,16 @@ class MainPresenter : BasePresenter<MainView> {
     }
 
     fun getForecastList() {
+        view?.showProgress()
         val subscription = service?.getForecast(object : Service.GetForecastCallback {
             override fun onSuccess(forecast: ServerResponse) {
                 val mapper = ForecastDataMapper()
                 val currentForecast = mapper.convertFromDataModel(forecast)
+                view?.showLocation("${currentForecast.city}, ${currentForecast.country}")
                 view?.showTemperature(currentForecast.currentTemperature)
                 view?.showHumidity(currentForecast.humidity)
-                view?.showWind(currentForecast.windSpeed)
+                view?.showWind(currentForecast.windSpeed, currentForecast.windDegree)
+                view?.hideProgress()
             }
 
             override fun onError(networkError: NetworkError) {

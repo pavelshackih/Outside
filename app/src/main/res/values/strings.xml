@@ -13,4 +13,6 @@
         <item>NW</item>
     </string-array>
 
+    <string name="wind_speed">m/s</string>
+
 </resources>

@@ -2,9 +2,13 @@ package com.innopolis.outside.screens.main
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.transition.Visibility
+import android.view.View
 import com.innopolis.outside.R
 import com.innopolis.outside.common.BaseApp
+import com.innopolis.outside.domain.model.ForecastDataMapper
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), MainView {
@@ -26,15 +30,17 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     override fun showProgress() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        general_layout.visibility = View.GONE
+        progress_bar.visibility = View.VISIBLE
     }
 
     override fun hideProgress() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        general_layout.visibility = View.VISIBLE
+        progress_bar.visibility = View.GONE
     }
 
-    override fun showLocation(city: String, country: String) {
-
+    override fun showLocation(location: String) {
+        supportActionBar?.title = ""
     }
 
     override fun showTemperature(temp: Int) {
@@ -45,7 +51,18 @@ class MainActivity : AppCompatActivity(), MainView {
         humidity_text.text = "$humidity%"
     }
 
-    override fun showWind(wind: Int) {
-        wind_text.text = "${wind}м/c"
+    override fun showWind(windSpeed: Int, windDegree: Int) {
+        convertFromWindDegree(windDegree)
+    }
+
+    /**
+     * Convert the degree to the string equivalent
+     * For example, 0° -> north, 52° -> northeast
+     * @return id of the string resource
+     */
+    private fun convertFromWindDegree(degree: Int): String {
+        val sideWorldsList = listOf(resources.getStringArray(R.array.worldsides))
+        val changedDegree = degree + 22.5
+        return "2"
     }
 }

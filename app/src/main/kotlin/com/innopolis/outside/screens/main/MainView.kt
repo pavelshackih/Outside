@@ -8,8 +8,8 @@ import com.innopolis.outside.screens.core.BaseView
 interface MainView : BaseView {
     fun showProgress()
     fun hideProgress()
-    fun showLocation(city: String, country: String)
+    fun showLocation(location: String)
     fun showTemperature(temp: Int)
     fun showHumidity(humidity: Int)
-    fun showWind(wind: Int)
+    fun showWind(windSpeed: Int, windDegree: Int)
 }

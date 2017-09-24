@@ -8,9 +8,12 @@ data class ForecastList(val city: String,
                         val dailyForecastServerEntity: List<Forecast>)
 
 data class Forecast(val date: String,
+                    val city: String,
+                    val country: String,
                     val description: String,
                     val currentTemperature: Int,
                     val humidity: Int,
+                    val windDegree: Int,
                     val windSpeed: Int,
                     val weatherIcon: Int)
 

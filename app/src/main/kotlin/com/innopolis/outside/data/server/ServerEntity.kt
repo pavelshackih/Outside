@@ -28,7 +28,10 @@ data class ServerResponse(val coord: Coordinates,
                           val rain: Rain,
                           val snow: Snow,
                           val dt: Long,
+                          val sys: Sys,
                           val name: String)
+
+data class Sys(val country: String)
 
 class Rain {
     @SerializedName("3h")
