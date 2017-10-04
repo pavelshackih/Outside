@@ -6,6 +6,7 @@ import android.transition.Visibility
 import android.view.View
 import com.innopolis.outside.R
 import com.innopolis.outside.common.BaseApp
+import com.innopolis.outside.domain.converter.WindConverter
 import com.innopolis.outside.domain.model.ForecastDataMapper
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -52,17 +53,6 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     override fun showWind(windSpeed: Int, windDegree: Int) {
-        wind_text.text = "${convertFromWindDegree(windDegree)} $windSpeed ${getString(R.string.wind_speed)}"
-    }
-
-    /**
-     * Convert the degree to the string equivalent
-     * For example, 0° -> north, 52° -> northeast
-     * @return id of the string resource
-     */
-    private fun convertFromWindDegree(degree: Int): String {
-        val sideWorldsList = resources.getStringArray(R.array.worldsides)
-        val changedDegree = degree + 22.5
-        return sideWorldsList[(changedDegree % 8).toInt()]
+        wind_text.text = "${WindConverter.convertFromWindDegree(this, windDegree)} $windSpeed ${getString(R.string.wind_speed)}"
     }
 }
