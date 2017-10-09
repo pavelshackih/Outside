@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity(), MainView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        supportActionBar?.elevation = 0F
+
         BaseApp.Companion.component?.inject(this)
         presenter.attachView(this)
         presenter.getForecastList()
@@ -53,6 +55,6 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     override fun showWind(windSpeed: Int, windDegree: Int) {
-        wind_text.text = "${WindConverter.convertFromWindDegree(this, windDegree)} $windSpeed ${getString(R.string.wind_speed)}"
+        wind_text.text = "$windSpeed ${getString(R.string.wind_speed)}, ${WindConverter.convertFromWindDegree(this, windDegree)}"
     }
 }

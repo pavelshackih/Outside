@@ -10,7 +10,11 @@ class WindConverter {
 
     companion object {
 
-        fun convertToKilometerPerHour(metersPerSeconds: Int) = metersPerSeconds * 1000 / 3600
+        /**
+         * Just converts from m/s -> km/h
+         * @return casts result ro the Int: 4.7 -> 4
+         */
+        fun convertToKilometersPerHour(metersPerSeconds: Int) = metersPerSeconds * 1000 / 3600
 
         /**
          * Convert the degree to the string equivalent
@@ -20,7 +24,7 @@ class WindConverter {
         fun convertFromWindDegree(activity: Activity, degree: Int): String {
             val sideWorldsList = activity.resources.getStringArray(R.array.worldsides)
             val changedDegree = degree + 22.5
-            return sideWorldsList[(changedDegree / 8).toInt()]
+            return sideWorldsList[(changedDegree / 45).toInt()]
         }
     }
 }

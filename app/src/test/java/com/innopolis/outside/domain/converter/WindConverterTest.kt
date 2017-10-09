@@ -1,6 +1,6 @@
 package com.innopolis.outside.domain.converter
 
-import org.junit.Assert.*
+import junit.framework.Assert.assertEquals
 import org.junit.Test
 
 /**
@@ -10,8 +10,9 @@ import org.junit.Test
 class WindConverterTest {
 
     @Test
-    fun convertToKilometerPerHour() {
-        val metersPerSecond = 5
-        val actual = WindConverter.convertToKilometerPerHour(metersPerSecond)
+    fun convertToKilometersPerHour() {
+        val metersPerSecond = 15
+        val actual = WindConverter.convertToKilometersPerHour(metersPerSecond)
+        assertEquals(actual, 4)
     }
 }
