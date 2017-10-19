@@ -9,7 +9,7 @@ import io.reactivex.schedulers.Schedulers
  */
 class Service(val networkService: NetworkService) {
 
-    fun getForecast(callback: GetForecastCallback) = networkService.getForecastNow("Moscow", "60947ea90bd50c478628a9214507ef87", "metric")
+    fun getCurrentWeather(callback: GetForecastCallback) = networkService.getCurrentWeather("Kazan", "5b6e26ac3383420e960130938171810")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(

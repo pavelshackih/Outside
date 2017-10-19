@@ -12,13 +12,4 @@ class WeatherIconConverter(private val response: ServerResponse) {
     fun weatherIconDrawable(): Int {
         return R.drawable.clear_day
     }
-
-    private fun checkDayOrNight(): TimeOfDay {
-        val time = Date(response.dt).hours
-        return if (time in 6..20) {
-            TimeOfDay.DAY
-        } else {
-            TimeOfDay.NIGHT
-        }
-    }
 }

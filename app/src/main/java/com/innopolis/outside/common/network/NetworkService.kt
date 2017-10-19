@@ -13,8 +13,7 @@ interface NetworkService {
     /**
      * Get current weather
      */
-    @GET("/data/2.5/weather/")
-    fun getForecastNow(@Query("q") city: String,
-                       @Query("APPID") key: String,
-                       @Query("units") units: String): Observable<ServerResponse>
+    @GET("/v1/current.json")
+    fun getCurrentWeather(@Query("q") city: String,
+                          @Query("key") key: String): Observable<ServerResponse>
 }

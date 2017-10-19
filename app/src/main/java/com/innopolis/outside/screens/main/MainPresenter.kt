@@ -3,9 +3,7 @@ package com.innopolis.outside.screens.main
 import com.innopolis.outside.common.network.NetworkError
 import com.innopolis.outside.common.network.Service
 import com.innopolis.outside.data.server.ServerResponse
-import com.innopolis.outside.domain.model.Forecast
 import com.innopolis.outside.domain.model.ForecastDataMapper
-import com.innopolis.outside.domain.model.ForecastList
 import com.innopolis.outside.screens.core.BasePresenter
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
@@ -27,14 +25,14 @@ class MainPresenter : BasePresenter<MainView> {
 
     fun getForecastList() {
         view?.showProgress()
-        val subscription = service?.getForecast(object : Service.GetForecastCallback {
+        val subscription = service?.getCurrentWeather(object : Service.GetForecastCallback {
             override fun onSuccess(forecast: ServerResponse) {
                 val mapper = ForecastDataMapper()
-                val currentForecast = mapper.convertFromDataModel(forecast)
-                view?.showLocation("${currentForecast.city}, ${currentForecast.country}")
-                view?.showTemperature(currentForecast.currentTemperature)
-                view?.showHumidity(currentForecast.humidity)
-                view?.showWind(currentForecast.windSpeed, currentForecast.windDegree)
+                val currentWeather = mapper.convertFromDataModel(forecast)
+                view?.showLocation("${currentWeather.city}, ${currentWeather.country}")
+                view?.showTemperature(currentWeather.currentTemperature)
+                view?.showHumidity(currentWeather.humidity)
+                view?.showWind(currentWeather.windSpeed, currentWeather.windSpeed)
                 view?.hideProgress()
             }
 
