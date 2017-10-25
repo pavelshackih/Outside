@@ -1,7 +1,7 @@
 package com.innopolis.outside.domain.model
 
 import com.innopolis.outside.data.server.ServerResponse
-import com.innopolis.outside.domain.model.Forecast as ModelForecast
+import com.innopolis.outside.domain.model.CurrentWeather as ModelForecast
 
 /**
  * @author Sergey Pinkevich
