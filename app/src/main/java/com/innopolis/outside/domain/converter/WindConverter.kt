@@ -11,10 +11,10 @@ class WindConverter {
     companion object {
 
         /**
-         * Just converts from m/s -> km/h
+         * Just converts from km/h -> m/s
          * @return casts result ro the Int: 4.7 -> 4
          */
-        fun convertToKilometersPerHour(metersPerSeconds: Int) = metersPerSeconds * 1000 / 3600
+        fun convertToMetersPerSecond(kilometersPerHour: Int) = kilometersPerHour * 1000 / 3600
 
         /**
          * Convert the degree to the string equivalent

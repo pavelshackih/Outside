@@ -2,14 +2,11 @@ package com.innopolis.outside.screens.main
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.transition.Visibility
 import android.view.View
 import com.innopolis.outside.R
 import com.innopolis.outside.common.BaseApp
 import com.innopolis.outside.domain.converter.WindConverter
-import com.innopolis.outside.domain.model.ForecastDataMapper
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), MainView {
