@@ -9,7 +9,7 @@ import javax.inject.Singleton
  * @author Sergey Pinkevich
  */
 @Singleton
-@Component(modules = arrayOf(NetworkModule::class))
+@Component(modules = arrayOf(MainModule::class, NetworkModule::class))
 interface AppComponent {
     fun inject(activity: MainActivity)
 }
