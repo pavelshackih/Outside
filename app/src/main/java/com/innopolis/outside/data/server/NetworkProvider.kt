@@ -12,8 +12,8 @@ import javax.inject.Inject
  */
 class NetworkProvider : DataProvider {
 
-    var service: Service? = null
-    var disposal: CompositeDisposable? = null
+    val service: Service?
+    val disposal: CompositeDisposable?
 
     @Inject constructor(service: Service?) {
         this.service = service

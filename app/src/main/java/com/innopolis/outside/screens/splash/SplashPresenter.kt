@@ -4,7 +4,6 @@ import com.innopolis.outside.common.network.Service
 import com.innopolis.outside.data.DataProvider
 import com.innopolis.outside.data.server.NetworkProvider
 import com.innopolis.outside.screens.core.BasePresenter
-import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -15,25 +14,24 @@ import javax.inject.Singleton
 class SplashPresenter : BasePresenter<SplashView> {
 
     var view: SplashView? = null
-    var disposable: CompositeDisposable? = null
-    var service: Service? = null
+    val networkService: Service?
+
+    @Inject
     lateinit var provider: DataProvider
 
     @Inject constructor(service: Service) {
-        this.service = service
+        this.networkService = service
     }
 
     fun getForecastList() {
-        provider = NetworkProvider(service)
+        provider = NetworkProvider(networkService)
     }
 
     override fun attachView(view: SplashView) {
         this.view = view
-        disposable = CompositeDisposable()
     }
 
     override fun detachView() {
         view = null
-        disposable?.clear()
     }
 }
