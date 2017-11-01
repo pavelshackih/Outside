@@ -25,6 +25,8 @@ class SplashPresenter : BasePresenter<SplashView> {
 
     fun getForecastList() {
         provider = NetworkProvider(networkService)
+        val currentWeather = provider.getCurrentWeather()
+
     }
 
     override fun attachView(view: SplashView) {
