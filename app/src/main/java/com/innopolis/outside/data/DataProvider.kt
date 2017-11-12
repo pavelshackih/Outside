@@ -1,10 +1,10 @@
 package com.innopolis.outside.data
 
-import io.reactivex.Observable
+import com.innopolis.outside.domain.model.CurrentWeather
 
 /**
  * @author Sergey Pinkevich
  */
-interface DataProvider<T> {
-    fun getData(): Observable<T>
+interface DataProvider {
+    fun getCurrentWeather(): CurrentWeather?
 }

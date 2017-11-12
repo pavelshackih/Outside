@@ -11,8 +11,8 @@ class WindConverterTest {
 
     @Test
     fun convertToKilometersPerHour() {
-        val metersPerSecond = 15
-        val actual = WindConverter.convertToKilometersPerHour(metersPerSecond)
-        assertEquals(actual, 4)
+        val kilometersPerHour = 20
+        val actual = WindConverter.convertToMetersPerSecond(kilometersPerHour)
+        assertEquals(actual, 5)
     }
 }
