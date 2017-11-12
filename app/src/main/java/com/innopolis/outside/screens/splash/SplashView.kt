@@ -1,9 +1,9 @@
 package com.innopolis.outside.screens.splash
 
-import com.innopolis.outside.screens.core.BaseView
+import com.arellomobile.mvp.MvpView
 
 /**
  * @author Sergey Pinkevich
  */
-interface SplashView : BaseView {
+interface SplashView : MvpView {
 }
