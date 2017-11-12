@@ -39,5 +39,5 @@ data class CurrentWeather(val date: String,
         dest.writeInt(weatherIcon)
     }
 
-    override fun describeContents() = 0
+    override fun describeContents() = hashCode()
 }

@@ -3,6 +3,8 @@ package com.innopolis.outside.screens.main
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.arellomobile.mvp.presenter.InjectPresenter
+import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.innopolis.outside.R
 import com.innopolis.outside.common.BaseApp
 import com.innopolis.outside.domain.converter.WindConverter
@@ -12,21 +14,19 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity(), MainView {
 
     @Inject
+    @InjectPresenter
     lateinit var presenter: MainPresenter
+
+    @ProvidePresenter
+    fun providePresenter() = presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportActionBar?.elevation = 0F
+        val intent = getIntent()
 
-        BaseApp.Companion.component?.inject(this)
         presenter.attachView(this)
-        presenter.getForecastList()
-    }
-
-    override fun showMessage(message: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun showProgress() {

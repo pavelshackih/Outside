@@ -26,6 +26,6 @@ class SplashPresenter : MvpPresenter<SplashView> {
 
     fun getForecastList() {
         provider = NetworkProvider(networkService)
-        val currentWeather = provider.getCurrentWeather()
+        viewState.startMainScreen(provider.getCurrentWeather()!!)
     }
 }

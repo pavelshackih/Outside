@@ -1,25 +1,19 @@
 package com.innopolis.outside.screens.main
 
+import com.arellomobile.mvp.InjectViewState
+import com.arellomobile.mvp.MvpPresenter
 import com.innopolis.outside.screens.core.BasePresenter
 import javax.inject.Singleton
 
 /**
  * @author Sergey Pinkevich
  */
-@Singleton
-class MainPresenter : BasePresenter<MainView> {
+@InjectViewState
+class MainPresenter : MvpPresenter<MainView>() {
 
     var view: MainView? = null
 
     fun getForecastList() {
         view?.showProgress()
-    }
-
-    override fun attachView(view: MainView) {
-        this.view = view
-    }
-
-    override fun detachView() {
-        view = null
     }
 }

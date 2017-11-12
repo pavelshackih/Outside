@@ -1,11 +1,11 @@
 package com.innopolis.outside.screens.main
 
-import com.innopolis.outside.screens.core.BaseView
+import com.arellomobile.mvp.MvpView
 
 /**
  * @author Sergey Pinkevich
  */
-interface MainView : BaseView {
+interface MainView : MvpView {
 
     fun showProgress()
 
