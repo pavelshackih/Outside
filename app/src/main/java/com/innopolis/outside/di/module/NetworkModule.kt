@@ -1,5 +1,8 @@
-package com.innopolis.outside.common.network
+package com.innopolis.outside.di.module
 
+import com.innopolis.outside.common.BASE_URL
+import com.innopolis.outside.common.network.NetworkService
+import com.innopolis.outside.common.network.Service
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import dagger.Module
 import dagger.Provides
@@ -12,8 +15,6 @@ import javax.inject.Singleton
  */
 @Module
 class NetworkModule {
-    private val BASE_URL = "http://api.apixu.com/"
-    val APP_ID = "5b6e26ac3383420e960130938171810"
 
     @Provides
     @Singleton

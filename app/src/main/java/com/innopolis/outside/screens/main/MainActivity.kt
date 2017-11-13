@@ -13,12 +13,11 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), MainView {
 
-    @Inject
     @InjectPresenter
     lateinit var presenter: MainPresenter
 
     @ProvidePresenter
-    fun providePresenter() = presenter
+    fun providePresenter() = MainPresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

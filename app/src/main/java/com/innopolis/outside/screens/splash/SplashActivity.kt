@@ -8,6 +8,8 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 
 import com.innopolis.outside.R
 import com.innopolis.outside.common.CURRENT_WEATHER
+import com.innopolis.outside.common.network.NetworkService
+import com.innopolis.outside.common.network.Service
 import com.innopolis.outside.domain.model.CurrentWeather
 import com.innopolis.outside.screens.main.MainActivity
 import javax.inject.Inject
@@ -17,9 +19,6 @@ class SplashActivity : AppCompatActivity(), SplashView {
     @Inject
     @InjectPresenter
     lateinit var splashPresenter: SplashPresenter
-
-    @ProvidePresenter
-    fun providePresenter(): SplashPresenter = splashPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
