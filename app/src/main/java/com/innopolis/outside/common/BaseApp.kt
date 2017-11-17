@@ -2,6 +2,7 @@ package com.innopolis.outside.common
 
 import android.app.Application
 import com.innopolis.outside.di.component.AppComponent
+import com.innopolis.outside.di.component.DaggerAppComponent
 import com.innopolis.outside.di.module.NetworkModule
 import com.innopolis.outside.di.module.SplashModule
 
