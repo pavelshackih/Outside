@@ -7,6 +7,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.innopolis.outside.R
 import com.innopolis.outside.common.BaseApp
+import com.innopolis.outside.common.CURRENT_WEATHER
 import com.innopolis.outside.domain.converter.WindConverter
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
@@ -22,8 +23,6 @@ class MainActivity : AppCompatActivity(), MainView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val intent = getIntent()
 
         presenter.attachView(this)
     }

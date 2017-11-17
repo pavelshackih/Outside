@@ -52,7 +52,6 @@ dependencies {
     kapt "com.arello-mobile:moxy-compiler:$moxy_version"
     implementation "com.arello-mobile:moxy-android:$moxy_version"
     implementation "com.arello-mobile:moxy-app-compat:$moxy_version"
-    kapt "com.arello-mobile:moxy-compiler:$moxy_version"
 
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.google.code.gson:gson:2.8.1'

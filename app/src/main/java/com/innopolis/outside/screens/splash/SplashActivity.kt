@@ -7,6 +7,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 
 import com.innopolis.outside.R
+import com.innopolis.outside.common.BaseApp
 import com.innopolis.outside.common.CURRENT_WEATHER
 import com.innopolis.outside.common.network.NetworkService
 import com.innopolis.outside.common.network.Service
@@ -21,6 +22,8 @@ class SplashActivity : AppCompatActivity(), SplashView {
     lateinit var splashPresenter: SplashPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        BaseApp.Companion.component?.inject(this)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
