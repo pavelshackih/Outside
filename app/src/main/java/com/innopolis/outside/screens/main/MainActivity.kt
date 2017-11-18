@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity(), MainView {
         setContentView(R.layout.activity_main)
 
         presenter.attachView(this)
+        presenter.showCurrentWeather(intent.getParcelableExtra(CURRENT_WEATHER))
     }
 
     override fun showProgress() {

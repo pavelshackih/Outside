@@ -2,6 +2,7 @@ package com.innopolis.outside.screens.main
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
+import com.innopolis.outside.domain.model.CurrentWeather
 
 /**
  * @author Sergey Pinkevich
@@ -9,9 +10,10 @@ import com.arellomobile.mvp.MvpPresenter
 @InjectViewState
 class MainPresenter : MvpPresenter<MainView>() {
 
-    var view: MainView? = null
-
-    fun getForecastList() {
-        view?.showProgress()
+    fun showCurrentWeather(currentWeather: CurrentWeather) {
+        viewState.showHumidity(currentWeather.humidity)
+        viewState.showLocation("${currentWeather.city}, ${currentWeather.country}")
+        viewState.showTemperature(currentWeather.currentTemperature)
+        viewState.showWind(currentWeather.windSpeed, 123)
     }
 }
