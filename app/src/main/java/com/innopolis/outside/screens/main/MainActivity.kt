@@ -1,18 +1,15 @@
 package com.innopolis.outside.screens.main
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.innopolis.outside.R
-import com.innopolis.outside.common.BaseApp
 import com.innopolis.outside.common.CURRENT_WEATHER
 import com.innopolis.outside.domain.converter.WindConverter
 import kotlinx.android.synthetic.main.activity_main.*
-import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), MainView {
+class MainActivity : MvpAppCompatActivity(), MainView {
 
     @InjectPresenter
     lateinit var presenter: MainPresenter
@@ -24,22 +21,11 @@ class MainActivity : AppCompatActivity(), MainView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        presenter.attachView(this)
         presenter.showCurrentWeather(intent.getParcelableExtra(CURRENT_WEATHER))
     }
 
-    override fun showProgress() {
-        general_layout.visibility = View.GONE
-        progress_bar.visibility = View.VISIBLE
-    }
-
-    override fun hideProgress() {
-        general_layout.visibility = View.VISIBLE
-        progress_bar.visibility = View.GONE
-    }
-
-    override fun showLocation(location: String) {
-        supportActionBar?.title = location
+    override fun showLocation(city: String, country: String) {
+        supportActionBar?.title = "$city, $country"
     }
 
     override fun showTemperature(temp: Int) {

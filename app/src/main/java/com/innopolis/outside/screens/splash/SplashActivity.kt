@@ -27,6 +27,7 @@ class SplashActivity : AppCompatActivity(), SplashView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+        splashPresenter.attachView(this)
         splashPresenter.getForecastList()
     }
 

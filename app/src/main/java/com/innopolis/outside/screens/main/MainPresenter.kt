@@ -12,7 +12,7 @@ class MainPresenter : MvpPresenter<MainView>() {
 
     fun showCurrentWeather(currentWeather: CurrentWeather) {
         viewState.showHumidity(currentWeather.humidity)
-        viewState.showLocation("${currentWeather.city}, ${currentWeather.country}")
+        viewState.showLocation(currentWeather.city, currentWeather.country)
         viewState.showTemperature(currentWeather.currentTemperature)
         viewState.showWind(currentWeather.windSpeed, 123)
     }

@@ -5,6 +5,8 @@ import com.arellomobile.mvp.MvpPresenter
 import com.innopolis.outside.common.network.NetworkError
 import com.innopolis.outside.common.network.Service
 import com.innopolis.outside.domain.model.CurrentWeather
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 
 /**
@@ -20,7 +22,7 @@ class SplashPresenter : MvpPresenter<SplashView> {
     }
 
     fun getForecastList() {
-        val subscription = networkService?.getCurrentWeather(object : Service.GetWeatherCallback {
+        networkService?.getCurrentWeather(object : Service.GetWeatherCallback {
             override fun onSuccess(currentWeather: CurrentWeather) {
                 viewState.startMainScreen(currentWeather)
             }
@@ -29,9 +31,5 @@ class SplashPresenter : MvpPresenter<SplashView> {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
         })
-    }
-
-    override fun destroyView(view: SplashView?) {
-        super.destroyView(view)
     }
 }

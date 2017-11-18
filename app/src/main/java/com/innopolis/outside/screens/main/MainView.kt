@@ -7,11 +7,7 @@ import com.arellomobile.mvp.MvpView
  */
 interface MainView : MvpView {
 
-    fun showProgress()
-
-    fun hideProgress()
-
-    fun showLocation(location: String)
+    fun showLocation(city: String, country: String)
 
     fun showTemperature(temp: Int)
 
