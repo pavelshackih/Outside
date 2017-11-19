@@ -3,14 +3,15 @@ package com.innopolis.outside.common
 import android.os.Parcel
 import android.os.Parcelable
 import java.text.DateFormat
+import java.text.SimpleDateFormat
 import java.util.*
 
 /**
  * @author Sergey Pinkevich
  */
-fun Long.toDateString(dateFormat: Int = DateFormat.MEDIUM): String {
-    val df = DateFormat.getDateInstance(dateFormat, Locale.getDefault())
-    return df.format(this)
+fun String.getDate(dateFormat: Int = DateFormat.MEDIUM): String {
+    val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.ENGLISH)
+    return formatter.format(this)
 }
 
 inline fun <reified T : Parcelable> createParcel(

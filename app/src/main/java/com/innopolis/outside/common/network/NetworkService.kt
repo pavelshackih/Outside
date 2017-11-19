@@ -10,10 +10,7 @@ import retrofit2.http.Query
  */
 interface NetworkService {
 
-    /**
-     * Get current weather
-     */
-    @GET("/v1/current.json")
-    fun getCurrentWeather(@Query("q") city: String,
-                          @Query("key") key: String): Observable<ServerResponse>
+    @GET("/v1/forecast.json")
+    fun getForecast(@Query("q") city: String,
+                    @Query("key") key: String): Observable<ServerResponse>
 }

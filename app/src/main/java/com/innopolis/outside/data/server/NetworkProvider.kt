@@ -22,7 +22,7 @@ class NetworkProvider : DataProvider {
 
     override fun getCurrentWeather(): CurrentWeather? {
         var weather: CurrentWeather? = null
-        val subscription = service?.getCurrentWeather(object : Service.GetWeatherCallback {
+        val subscription = service?.getForecast(object : Service.GetWeatherCallback {
             override fun onSuccess(currentWeather: CurrentWeather) {
                 weather = currentWeather
             }

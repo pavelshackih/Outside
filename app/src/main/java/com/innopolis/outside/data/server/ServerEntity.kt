@@ -4,14 +4,21 @@ package com.innopolis.outside.data.server
  * @author Sergey Pinkevich
  */
 data class ServerResponse(val location: Location,
-                          val current: CurrentWeather)
+                          val current: CurrentWeather,
+                          val forecast: Forecast)
 
 data class Location(val name: String, val country: String)
 
-data class CurrentWeather(val temp_c: Float,
+data class CurrentWeather(val lastUpdated: String,
+                          val temp_c: Float,
                           val is_day: Int,
                           val wind_kph: Float,
+                          val wind_dir: String,
                           val pressure_mb: Int,
                           val humidity: Int,
                           val cloud: Int,
                           val feelslike_c: Float)
+
+data class Forecast(val forecastday: List<DailyForecast>)
+
+data class DailyForecast(val day: String)

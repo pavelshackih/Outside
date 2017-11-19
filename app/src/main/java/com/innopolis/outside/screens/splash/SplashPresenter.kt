@@ -5,8 +5,6 @@ import com.arellomobile.mvp.MvpPresenter
 import com.innopolis.outside.common.network.NetworkError
 import com.innopolis.outside.common.network.Service
 import com.innopolis.outside.domain.model.CurrentWeather
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 
 /**
@@ -22,7 +20,7 @@ class SplashPresenter : MvpPresenter<SplashView> {
     }
 
     fun getForecastList() {
-        networkService?.getCurrentWeather(object : Service.GetWeatherCallback {
+        networkService?.getForecast(object : Service.GetWeatherCallback {
             override fun onSuccess(currentWeather: CurrentWeather) {
                 viewState.startMainScreen(currentWeather)
             }

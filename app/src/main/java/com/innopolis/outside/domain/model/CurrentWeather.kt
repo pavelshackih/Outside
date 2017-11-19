@@ -19,7 +19,7 @@ data class CurrentWeather(val date: String,
         val CREATOR = createParcel { CurrentWeather(it) }
     }
 
-    protected constructor(parcelIn: Parcel) : this(
+    private constructor(parcelIn: Parcel) : this(
             parcelIn.readString(),
             parcelIn.readString(),
             parcelIn.readString(),

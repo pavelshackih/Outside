@@ -11,7 +11,7 @@ import io.reactivex.schedulers.Schedulers
  */
 class Service(val networkService: NetworkService) {
 
-    fun getCurrentWeather(callback: GetWeatherCallback) = networkService.getCurrentWeather("Kazan", APP_ID)
+    fun getForecast(callback: GetWeatherCallback) = networkService.getForecast("Kazan", APP_ID)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .map(
