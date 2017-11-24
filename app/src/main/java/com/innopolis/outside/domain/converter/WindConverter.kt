@@ -1,5 +1,7 @@
 package com.innopolis.outside.domain.converter
 
+import com.innopolis.outside.screens.main.MainActivity
+
 /**
  * @author Sergey Pinkevich
  */
@@ -12,5 +14,7 @@ class WindConverter {
          * @return casts result ro the Int: 4.7 -> 4
          */
         fun convertToMetersPerSecond(kilometersPerHour: Int) = kilometersPerHour * 1000 / 3600
+
+        fun convertFromWindDegree(activity: MainActivity, windDegree: Int): String = windDegree.toString()
     }
 }

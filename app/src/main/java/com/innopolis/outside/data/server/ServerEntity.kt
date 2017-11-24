@@ -4,8 +4,7 @@ package com.innopolis.outside.data.server
  * @author Sergey Pinkevich
  */
 data class ServerResponse(val location: Location,
-                          val current: CurrentWeather,
-                          val forecast: Forecast)
+                          val current: CurrentWeather)
 
 data class Location(val name: String, val country: String)
 

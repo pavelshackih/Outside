@@ -8,8 +8,6 @@ import android.arch.persistence.room.PrimaryKey
  */
 @Entity
 data class CurrentWeather(
-        @PrimaryKey(autoGenerate = true)
-        val id: Long,
         val date: String = "",
         val city: String = "",
         val country: String = "",
@@ -17,4 +15,7 @@ data class CurrentWeather(
         val humidity: Int,
         val windSpeed: Int,
         val weatherIcon: Int
-)
+) {
+        @PrimaryKey(autoGenerate = true)
+        val id: Long = 0
+}

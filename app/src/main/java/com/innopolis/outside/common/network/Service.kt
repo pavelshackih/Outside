@@ -3,27 +3,15 @@ package com.innopolis.outside.common.network
 import com.innopolis.outside.common.APP_ID
 import com.innopolis.outside.domain.converter.Converter
 import com.innopolis.outside.domain.model.CurrentWeather
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.Single
 
 /**
  * @author Sergey Pinkevich
  */
-class Service(val networkService: NetworkService) {
+class Service(private val networkService: NetworkService) {
 
-    fun getForecast(callback: GetWeatherCallback) = networkService.getForecast("Kazan", APP_ID)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .map(
-                    { t -> Converter.convertFromDataModel(t) }
-            )
-            .subscribe(
-                    { s -> callback.onSuccess(s) },
-                    { e -> callback.onError(NetworkError(e)) }
-            )
-
-    interface GetWeatherCallback {
-        fun onSuccess(currentWeather: CurrentWeather)
-        fun onError(networkError: NetworkError)
-    }
+    fun getForecast(): Single<CurrentWeather> =
+            networkService.getForecast("Moscow", APP_ID)
+                    .map({ Converter.convertFromDataModel(it) })
+                    .firstOrError()
 }
